@@ -1,0 +1,302 @@
+#root {
+  min-height: 100vh;
+}
+
+main {
+  min-height: 100vh;
+  padding: 32px;
+  background-color: #d3d3d3;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.title-accent {
+  width: 6px;
+  height: 54px;
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    #16706f 0%,
+    #55c2ca 100%
+  );
+}
+
+.app-header h1 {
+  margin: 0;
+  color: #17324d;
+  font-family: Arial, sans-serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -1.5px;
+}
+
+.app-subtitle {
+  margin: 7px 0 0;
+  color: #64788b;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+.court-area {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 95px;
+  background-color: #55c2ca;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.court {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 2 / 1;
+  background-color: #f28c68;
+  border: 5px solid #ffffff;
+  box-shadow: 0 8px 24px rgba(23, 50, 77, 0.2);
+}
+
+
+.center-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background-color: #ffffff;
+  transform: translateX(-50%);
+}
+
+.attack-zone {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 16.6667%;
+  background-color: #ef7448;
+  border-left: 4px solid #ffffff;
+  border-right: 4px solid #ffffff;
+  box-sizing: border-box;
+}
+
+.attack-zone-left {
+  left: 33.3333%;
+  border-left: 4px solid #ffffff;
+}
+
+.attack-zone-right {
+  left: 50%;
+  border-right: 4px solid #ffffff;
+}
+
+.net {
+  position: absolute;
+  top: -24px;
+  bottom: -24px;
+  left: 50%;
+  width: 6px;
+  background-color: #17324d;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.official-marker {
+  position: absolute;
+  z-index: 3;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 52px;
+  height: 52px;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+
+  background-color: #17324d;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+
+  cursor: grab;
+  user-select: none;
+  box-shadow: 0 4px 10px rgba(23, 50, 77, 0.3);
+}
+
+.r1-marker {
+  top: -75px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.r2-marker {
+  bottom: -75px;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+.lj1-marker {
+  top: -45px;
+  left: -45px;
+  transform: translate(-50%, -50%);
+}
+
+.lj2-marker {
+  bottom: -45px;
+  right: -45px;
+  transform: translate(50%, 50%);
+}
+
+.volleyball {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  z-index: 4;
+
+  transform: translate(-50%, -50%);
+  font-size: 52px;
+  line-height: 1;
+
+  cursor: grab;
+  user-select: none;
+  filter: drop-shadow(0 4px 5px rgba(23, 50, 77, 0.3));
+}
+
+.reset-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+.reset-controls .reset-button {
+  flex: 0 0 auto;
+  min-height: 34px;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  background-color: #17324d;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(23, 50, 77, 0.22);
+}
+
+.reset-button:hover {
+  background-color: #2f6089;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(23, 50, 77, 0.3);
+}
+
+.reset-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 3px rgba(23, 50, 77, 0.25);
+}
+
+.official-marker:active,
+.volleyball:active {
+  cursor: grabbing;
+}
+
+.official-marker,
+.volleyball {
+  touch-action: none;
+}
+
+.reset-button:disabled {
+  background-color: #a9b4bf;
+  color: #eef2f5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.reset-controls .undo-button {
+  background-color: #6b4fa1;
+}
+
+.reset-controls .undo-button:hover:not(:disabled) {
+  background-color: #8062ba;
+}
+
+.reset-controls .fullscreen-button {
+  background-color: #16706f;
+}
+
+.reset-controls .fullscreen-button:hover {
+  background-color: #208a88;
+}
+
+.reset-controls .undo-button:disabled {
+  background-color: #a9b4bf;
+  color: #eef2f5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.reset-button:focus-visible {
+  outline: 3px solid rgba(85, 194, 202, 0.65);
+  outline-offset: 3px;
+}
+
+@media (max-width: 700px) {
+  main {
+    padding: 16px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+.court-area {
+  margin-top: 24px;
+  padding: 105px;
+}
+
+  .official-marker {
+    width: 44px;
+    height: 44px;
+    font-size: 15px;
+  }
+
+  .volleyball {
+    font-size: 44px;
+  }
+
+  .reset-controls {
+    gap: 8px;
+  }
+
+  .reset-controls .reset-button {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+}
