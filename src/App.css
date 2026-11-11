@@ -11,14 +11,14 @@ main {
 .app-header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 14px;
-  margin-bottom: 12px;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-bottom: 6px;
 }
 
 .title-accent {
-  width: 6px;
-  height: 54px;
+  width: 5px;
+  height: 32px;
   border-radius: 999px;
   background: linear-gradient(
     180deg,
@@ -31,17 +31,17 @@ main {
   margin: 0;
   color: #17324d;
   font-family: Arial, sans-serif;
-  font-size: clamp(32px, 4vw, 48px);
+  font-size: clamp(20px, 2.5vw, 28px);
   font-weight: 800;
   line-height: 1;
-  letter-spacing: -1.5px;
+  letter-spacing: -0.5px;
 }
 
 .app-subtitle {
-  margin: 7px 0 0;
+  margin: 3px 0 0;
   color: #64788b;
   font-family: Arial, sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.2px;
 }
@@ -122,15 +122,15 @@ main {
   align-items: center;
   justify-content: center;
 
-  width: 52px;
-  height: 52px;
+  width: 44px;
+  height: 44px;
   border: 3px solid #ffffff;
   border-radius: 50%;
 
   background-color: #17324d;
   color: #ffffff;
   font-family: Arial, sans-serif;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: bold;
 
   cursor: grab;
@@ -151,25 +151,25 @@ main {
 }
 
 .lj1-marker {
-  top: -45px;
-  left: -45px;
+  top: -20px;
+  left: -20px;
   transform: translate(-50%, -50%);
 }
 
 .lj2-marker {
-  bottom: -45px;
-  right: -45px;
+  bottom: -20px;
+  right: -20px;
   transform: translate(50%, 50%);
 }
 
 .volleyball {
   position: absolute;
-  top: 50%;
-  left: 25%;
+  top: 80%;
+  left: -5%;
   z-index: 4;
 
   transform: translate(-50%, -50%);
-  font-size: 52px;
+  font-size: 44px;
   line-height: 1;
 
   cursor: grab;
@@ -184,14 +184,6 @@ main {
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 16px;
-  padding: 0;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  border: 0 !important;
-  outline: 0 !important;
-  box-shadow: none !important;
-  background-color: transparent !important;
 }
 
 .reset-controls .reset-button {
@@ -220,13 +212,67 @@ main {
   box-shadow: 0 1px 3px rgba(23, 50, 77, 0.25);
 }
 
+.r1-marker {
+  cursor: default;
+}
+
+.player-marker {
+  position: absolute;
+  z-index: 3;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  box-shadow: 0 2px 6px rgba(23, 50, 77, 0.25);
+  transform: translate(-50%, -50%);
+}
+
+.team-a-player { background-color: #2471a3; }
+.team-b-player { background-color: #922b21; }
+
+/* Team A (left side, facing right toward net)
+   Front row (near net): x=37%  |  Back row: x=13%
+   Top=P4/P5, Mid=P3/P6, Bot=P2/P1  */
+.ta-p4 { left: 37%; top: 20%; }
+.ta-p3 { left: 37%; top: 50%; }
+.ta-p2 { left: 37%; top: 80%; }
+.ta-p5 { left: 13%; top: 20%; }
+.ta-p6 { left: 13%; top: 50%; }
+.ta-p1 { left: 13%; top: 80%; }
+
+/* Team B (right side, facing left toward net)
+   Front row (near net): x=63%  |  Back row: x=87%
+   Top=P2/P1, Mid=P3/P6, Bot=P4/P5  */
+.tb-p2 { left: 63%; top: 20%; }
+.tb-p3 { left: 63%; top: 50%; }
+.tb-p4 { left: 63%; top: 80%; }
+.tb-p1 { left: 87%; top: 20%; }
+.tb-p6 { left: 87%; top: 50%; }
+.tb-p5 { left: 87%; top: 80%; }
+
 .official-marker:active,
-.volleyball:active {
+.volleyball:active,
+.player-marker:active {
   cursor: grabbing;
 }
 
 .official-marker,
-.volleyball {
+.volleyball,
+.player-marker {
   touch-action: none;
 }
 
@@ -246,12 +292,36 @@ main {
   background-color: #8062ba;
 }
 
+.reset-controls .rotations-button {
+  background-color: #2471a3;
+}
+
+.reset-controls .rotations-button:hover {
+  background-color: #2e86c1;
+}
+
+.reset-controls .lj-sequence-button {
+  background-color: #17324d;
+}
+
+.reset-controls .lj-sequence-button:hover:not(:disabled) {
+  background-color: #2f6089;
+}
+
+.reset-controls .capture-button {
+  background-color: #7d3c98;
+}
+
+.reset-controls .capture-button:hover {
+  background-color: #9b59b6;
+}
+
 .reset-controls .fullscreen-button {
-  background-color: #16706f;
+  background-color: #17324d;
 }
 
 .reset-controls .fullscreen-button:hover {
-  background-color: #208a88;
+  background-color: #2f6089;
 }
 
 .reset-controls .undo-button:disabled {
@@ -260,6 +330,81 @@ main {
   cursor: not-allowed;
   transform: none;
   box-shadow: none;
+}
+
+.dropdown-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9;
+}
+
+.reset-dropdown {
+  position: relative;
+}
+
+.reset-dropdown-menu {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 140px;
+  background-color: #17324d;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(23, 50, 77, 0.3);
+  z-index: 10;
+}
+
+.rotation-dropdown-menu {
+  display: flex;
+  flex-direction: row;
+  min-width: 220px;
+}
+
+.rotation-col {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.rotation-col + .rotation-col {
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.rotation-col-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 6px 14px;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.55);
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.reset-dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 8px 14px;
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: left;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.reset-dropdown-item:hover {
+  background-color: #2f6089;
 }
 
 .reset-button:focus-visible {
@@ -276,19 +421,9 @@ main {
     font-size: 24px;
   }
 
-.court-area {
-  margin-top: 24px;
-  padding: 105px;
-}
-
-  .official-marker {
-    width: 44px;
-    height: 44px;
-    font-size: 15px;
-  }
-
-  .volleyball {
-    font-size: 44px;
+  .court-area {
+    padding: 60px;
+    width: 100%;
   }
 
   .reset-controls {
@@ -298,5 +433,16 @@ main {
   .reset-controls .reset-button {
     padding: 6px 10px;
     font-size: 12px;
+  }
+
+  .official-marker,
+  .player-marker {
+    width: 36px;
+    height: 36px;
+    font-size: 12px;
+  }
+
+  .volleyball {
+    font-size: 36px;
   }
 }
