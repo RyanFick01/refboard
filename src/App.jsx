@@ -1,3 +1,5 @@
+/* npm run dev */
+
 import './App.css'
 import { useEffect, useRef, useState } from 'react'
 
@@ -534,6 +536,7 @@ function App() {
         </div>
       </header>
 
+      <div className="court-layout">
       <div className="court-area" ref={courtRef}>
         <div className="court">
           <div className="attack-zone attack-zone-left"></div>
@@ -767,6 +770,7 @@ function App() {
         >
           {isFullScreen ? 'Exit Full Screen' : 'Full Screen'}
         </button>
+      </div>
       </div>
     </main>
   )
